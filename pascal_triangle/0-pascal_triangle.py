@@ -1,3 +1,12 @@
+#!/usr/bin/python3
+"""
+Module for generating Pascal's triangle.
+
+This module provides a function to compute Pascal's triangle
+up to a given number of rows.
+"""
+
+
 def pascal_triangle(n):
     """Returns a list of lists representing Pascal's triangle up to n rows."""
     triangle = []
