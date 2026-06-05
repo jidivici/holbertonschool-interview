@@ -21,7 +21,7 @@ if __name__ == "__main__":
             line_count += 1
             parts = line.split()
 
-            if len(parts) < 8:
+            if len(parts) < 7:
                 continue
 
             try:
@@ -39,10 +39,10 @@ if __name__ == "__main__":
             if line_count % 10 == 0:
                 print_stats(total_size, status_counts)
 
+
     except KeyboardInterrupt:
-        if line_count % 10 != 0:
-            print_stats(total_size, status_counts)
-        raise
+        print_stats(total_size, status_counts)
+        sys.exit(0)
     else:
         if line_count == 0 or line_count % 10 != 0:
             print_stats(total_size, status_counts)
