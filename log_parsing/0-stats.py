@@ -21,7 +21,7 @@ if __name__ == "__main__":
             line_count += 1
             parts = line.split()
 
-            if len(parts) < 9:
+            if len(parts) < 7:
                 continue
 
             try:
