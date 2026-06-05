@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+"""Module script that reads stdin line by line and computes metrics."""
 import sys
-""" Module script that reads stdin line by line and computes metrics:"""
 
 
 def print_stats(total_size, status_counts):
@@ -35,8 +35,8 @@ if __name__ == "__main__":
             total_size += file_size
 
             if status_code in allowed_codes:
-                status_counts[status_code] = \
-                    status_counts.get(status_code, 0) + 1
+                status_counts[status_code] = (
+                    status_counts.get(status_code, 0) + 1)
 
             if line_count % 10 == 0:
                 print_stats(total_size, status_counts)
@@ -46,3 +46,4 @@ if __name__ == "__main__":
         sys.exit(0)
 
     print_stats(total_size, status_counts)
+
