@@ -21,28 +21,26 @@ if __name__ == "__main__":
             line_count += 1
             parts = line.split()
 
-            if len(parts) < 7:
-                continue
+            try:
+                file_size = int(parts[-1])
+                total_size += file_size
+            except (ValueError, IndexError):
+                pass
 
             try:
                 status_code = int(parts[-2])
-                file_size = int(parts[-1])
-            except ValueError:
-                continue
-
-            total_size += file_size
-
-            if status_code in allowed_codes:
-                status_counts[status_code] = (
-                    status_counts.get(status_code, 0) + 1)
+                if status_code in allowed_codes:
+                    status_counts[status_code] = (
+                        status_counts.get(status_code, 0) + 1)
+            except (ValueError, IndexError):
+                pass
 
             if line_count % 10 == 0:
                 print_stats(total_size, status_counts)
 
-
     except KeyboardInterrupt:
         print_stats(total_size, status_counts)
-        sys.exit(0)
+
     else:
-        if line_count == 0 or line_count % 10 != 0:
+        if line_count > 0:
             print_stats(total_size, status_counts)
