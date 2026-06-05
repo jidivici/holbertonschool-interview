@@ -43,5 +43,5 @@ if __name__ == "__main__":
         print_stats(total_size, status_counts)
         raise
 
-    if line_count == 0 or line_count % 10 != 0:
+    if line_count % 10 != 0:
         print_stats(total_size, status_counts)
