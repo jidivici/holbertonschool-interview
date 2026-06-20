@@ -10,6 +10,7 @@ def is_safe(row, col, queens):
             return False
     return True
 
+
 def solve_nqueens(n, row, queens, solutions):
     """Recursively places queens row by row to find all valid solutions."""
     if row == n:
@@ -22,6 +23,7 @@ def solve_nqueens(n, row, queens, solutions):
             queens.append(col)
             solve_nqueens(n, row + 1, queens, solutions)
             queens.pop()
+
 
 def main():
     """Parses CLI arguments and launches the N-Queens solver."""
